@@ -1,0 +1,14 @@
+h1,h2,h3,h4,h5{
+    font-family: Lato;
+}
+
+p, li, a{
+    font-family: Oswald;
+}
+
+header, main, footer{
+    margin: 5px 6% 0 6%;
+    padding: 0 10px;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+}

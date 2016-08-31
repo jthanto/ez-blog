@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>CodeIgniter</title>
+    <title>EZ-blog - CodeIgniter Project</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link href="https://fonts.googleapis.com/css?family=Lato|Oswald" rel="stylesheet">
@@ -9,7 +9,7 @@
 </head>
 <body>
 <header>
-    <h2>JT's CodeIgniter</h2>
+    <h2>JT's EZ-blog</h2>
     <nav>
         <a href="/home/">Home</a>
         <a href="/away/">Away</a>
@@ -26,5 +26,11 @@
 
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<?php
+    foreach($scripts as $script){
+        echo '<script src="'.$script.'"></script>';
+    }
+?>
 </body>
 </html>

@@ -1,9 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once(APPPATH."core/DesignFrame.php");
 
-
-class Away extends DesignFrame {
+class Away extends MY_Controller {
 
     /**
      * Index Page for this controller.

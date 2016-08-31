@@ -1,24 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once(APPPATH."core/DesignFrame.php");
 
+class Blog extends MY_Controller {
 
-class Blog extends DesignFrame {
+    // TODO: Find out why /blog/ sometimes comes as a double.
 
     /**
-     * Index Page for this controller.
+     * Blog controller
      *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     *	- or -
-     * 		http://example.com/index.php/welcome/index
-     *	- or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see https://codeigniter.com/user_guide/general/urls.html
+     * This handles defines routes for
      */
     public function index(){
         $this->displayInsideMainDesign($this->load->view('blog_main', null, true));
@@ -26,7 +16,20 @@ class Blog extends DesignFrame {
 
     public function write(){
         /* This is where you write your posts */
-        $this->displayInsideMainDesign('WRITE SOMETHING HERE');
+        $this->addScript('/js/blogwrite.js');
+        $this->displayInsideMainDesign(
+            $this->load->view('blog_write', null, true)
+        );
+    }
+
+    public function preview_post(){
+        // If this is not posted to, show index, this is not really a page we want to visit.
+        if(!$_POST){
+            $this->index();
+        }
+        $MDParser = new Parsedown();
+        echo $MDParser->text($this->input->post('data'));
+        // TODO: error handling
     }
 
     public function latest(){
@@ -41,6 +44,5 @@ class Blog extends DesignFrame {
         } else {
             $this->displayInsideMainDesign($category);
         }
-
     }
 }

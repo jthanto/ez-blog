@@ -1,4 +1,4 @@
-<h1>Write entry here</h1>
+<input id="entry_title" placeholder="Title" value="Testtitle"><br>
 <textarea id="entry_content">
 #Dummy text, remove for later use. ;)
 ## Header 2
@@ -29,7 +29,8 @@ alert(s);
 
 > Blockquotes are very handy in email to emulate reply text.
 > This line is part of the same quote.
-</textarea>
+</textarea><br>
+<input id="entry_categories" placeholder="separate with ','" value="test, rufl, tech">
 <div id="entry_preview">
 
 </div>

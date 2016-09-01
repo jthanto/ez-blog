@@ -75,11 +75,22 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
-	'dbdriver' => 'mysqli',
+//
+//     Mysqli
+//     Uncomment following section to use mysqli
+//
+    'dbdriver' => 'mysqli',
+    'hostname' => 'localhost',
+//
+//     PDO
+//     Uncomment following section to use mysqli
+//
+//    'dbdriver' => 'PDO',
+//    'hostname' => 'mysql:host=localhost',
+
+	'username' => 'homestead',
+	'password' => 'secret',
+	'database' => 'ezblog',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

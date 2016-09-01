@@ -28,8 +28,18 @@ class Blog extends MY_Controller {
             $this->index();
         }
         $MDParser = new Parsedown();
+        // TODO: Check why $this->input seems undefined.
         echo $MDParser->text($this->input->post('data'));
         // TODO: error handling
+    }
+
+    public function save_post(){
+        $this->load->model('post');
+        /* @var Post $this->post */
+        $this->post->setTitle($this->input->post('title'));
+        $this->post->setContent($this->input->post('content'));
+//        $this->post->setCategories($this->input->post('categories'));
+        $this->post->save();
     }
 
     public function latest(){

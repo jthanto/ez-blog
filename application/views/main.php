@@ -1,4 +1,6 @@
-<html>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><html>
 <head>
     <title>EZ-blog - CodeIgniter Project</title>
     <meta charset="UTF-8">
@@ -11,6 +13,7 @@
 <header>
     <h2>JT's EZ-blog</h2>
     <nav>
+        <!-- change this to use anchor($uri, $title, $attributes) -->
         <a href="/home/">Home</a>
         <a href="/away/">Away</a>
         <a href="/away/outdex">Outdex</a>

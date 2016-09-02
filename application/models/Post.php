@@ -66,9 +66,11 @@ class Post extends CI_Model{
      * This should only be accessed inside class, it should be called when saving.
      */
     protected function setDateTime(){
-        $this->datetime = new DateTime();
+        // TODO: There must be a better way. What about date objects
+        $this->datetime = date("Y-m-d H:i:s");
     }
 
+//    TODO: Fix the categories methods. Another model and collection maybe?
 //    public function getCategories(){
 //        return $this->categories;
 //    }
@@ -103,10 +105,16 @@ class Post extends CI_Model{
     }
 
     public static function getById($id){
-        // Load and return myself
+        // TODO: Load and return myself
+        $me = new self();
         if(!empty($id)){
-
+//            $query = $me->db->get('posts', 10);
+//            return $me->d
         }
+    }
+
+    protected function createByArray(){
+        // TODO Implement createByArray function
     }
 
 

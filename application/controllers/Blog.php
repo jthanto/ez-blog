@@ -9,9 +9,15 @@ class Blog extends MY_Controller {
      * Blog controller
      *
      * This handles defines routes for
+     * @param string $url The blog url.
      */
-    public function index(){
-        $this->displayInsideMainDesign($this->load->view('blog_main', null, true));
+    public function index($url=null){
+        if(!empty($url)){
+            $this->displayInsideMainDesign('this is a blog post');
+        } else {
+            $this->load->model('postcollection');
+            $this->displayInsideMainDesign($this->load->view('blog_main', array('posts' => $this->postcollection->getFiveLatest()), true));
+        }
     }
 
     public function write(){
@@ -38,8 +44,9 @@ class Blog extends MY_Controller {
         /* @var Post $this->post */
         $this->post->setTitle($this->input->post('title'));
         $this->post->setContent($this->input->post('content'));
-//        $this->post->setCategories($this->input->post('categories'));
+//        $this->post->setCategories($this->input->post('categories')); // TODO: Fix later.
         $this->post->save();
+        // TODO: Give proper response.
     }
 
     public function latest(){

@@ -14,4 +14,14 @@
     </ul>
 </nav>
 
+
+<?php foreach($posts as $post) {
+    // TODO: Fix a preview part of the blog.
+    echo "<div class='blog_post'>
+        <h3>$post->title</h3>
+        <p>$post->content</p>
+        <a href='blog/$post->url'>Les mer</a>
+    <div class='blog_post'>";
+    }
+?>
 <p>Her kommer bloggen</p>
